@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import '@fontsource-variable/inter-tight';
 import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource-variable/archivo/wdth.css';
+import 'lenis/dist/lenis.css';
 import './globals.css';
 
 export const metadata: Metadata = {

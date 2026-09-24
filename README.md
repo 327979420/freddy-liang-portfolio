@@ -30,7 +30,7 @@ The production website is exported to `out/`. For a local production preview, ru
 
 ## Continue the work
 
-Read [HANDOFF.md](HANDOFF.md) first. The next requested changes are Mochi's natural colour, clearer boundaries between the main sections, and a revised ending. **Those changes are recorded, not implemented or approved for implementation yet.**
+Read [HANDOFF.md](HANDOFF.md) first. Sprint 1.6 (colour Mochi, four named chapters, compact contact ending, and the storyboard's reveal/cursor interactions) is implemented in source; see [docs/NEXT-CHANGES.md](docs/NEXT-CHANGES.md). Deployment is separate.
 
 The current implementation is Next.js 16.3.6, React 19.2.4 and TypeScript. GitHub Actions builds the site and provides a downloadable static export. Pushing to GitHub does **not** automatically update the existing live site. See [deployment instructions](docs/DEPLOYMENT.md).
 

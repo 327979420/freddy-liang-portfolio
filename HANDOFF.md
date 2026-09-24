@@ -13,7 +13,7 @@ This repository is the portable editing handoff for Freddy Liang's personal port
 
 Sprint 1.5 is a dark, cinematic, image-led homepage supporting Business Analyst / Data Analyst applications. Keep the restrained material background, large editorial typography, real project images, usable links and a few purposeful interactions. Avoid a generic grid, SaaS cards, long copy, neon or AI as the headline theme.
 
-Sequence: opening → Freddy and Mochi → Selected Work threshold → Sage Vista → reserved Trading Analytics → Max-Rebate → Lab → Journey → existing ending.
+Sequence: opening → I Profile (Freddy and Mochi) → II Selected Work (threshold → Sage Vista → reserved Trading Analytics → Max-Rebate → Lab) → III Journey → IV Contact. The repeated name/Mochi ending was removed in Sprint 1.6.
 
 Journey belongs **after Lab**. SYSTEMS / CLARITY / INSIGHT must remain memorable and recur meaningfully. Always identify what a project actually is:
 
@@ -31,19 +31,23 @@ The current image treatment and motion were approved as a substantial improvemen
 | File | Purpose |
 | --- | --- |
 | app/page.tsx | Scene order, scroll motion, project links, Lab interaction and Journey controls |
-| app/components/Mochi.tsx | Layered cat artwork, pointer response and touch toggle |
+| app/components/Mochi.tsx | Layered colour cat artwork, approach/look response, link glances and touch toggle |
+| scripts/recolour-mochi.py | Regenerates the colour Mochi from `mochi-cutout.png` (needs Pillow + NumPy) |
 | app/globals.css | Material background, scene compositions, responsive and reduced-motion behavior |
 | app/content.ts | Contacts, project destinations, city photos and credits |
 | app/layout.tsx | Fonts, page metadata, pre-paint intro bypass |
 | public/images/ | All images needed by the website |
-| docs/references/ | Original-colour Mochi photographs for the next asset pass |
+| docs/references/ | Original-colour Mochi photographs used to match the recolour |
 | docs/review/ | Existing desktop/mobile screenshots and browser results |
 | .openai/hosting.json | Existing Sites project identity; not a GitHub deployment integration |
 
 ## Behavior to preserve
 
 - The opening lasts two seconds and can be skipped with input. Reduced motion bypasses it.
-- Mochi responds to pointer position and touch, and resets when the pointer leaves the page.
+- Mochi responds to pointer approach, looks toward hovered links, reacts to touch, and resets when the pointer leaves the page.
+- The header chapter indicator must stay in sync with the four `data-chapter` sections.
+- Sage Vista starts small and monochrome and grows with its pinned scroll (and hover); Max-Rebate opens from a letterbox. On fine pointers a cursor label replaces the static gateway label; touch keeps the static label.
+- Lenis smooth scrolling is disabled for reduced motion; titles and images reveal once on entry, and are simply present without motion.
 - Sage Vista grows with scroll/hover; its image opens the real live project in a new tab.
 - Max-Rebate pans through a genuine English capture; its image opens the live website.
 - Lab has two apps shown in three views. Each view opens the relevant public repository; do not invent a third app.

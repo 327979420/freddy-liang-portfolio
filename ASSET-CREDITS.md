@@ -17,6 +17,9 @@ These images illustrate the cities in the owner-provided route. They are third-p
 
 ## Mochi character asset
 
+The site now uses `public/images/mochi-colour.webp`, derived from the cutout below by `scripts/recolour-mochi.py`: a tone-to-colour map sampled from `docs/references/mochi-standing.jpg` (dark seal-brown points, cream body) plus blue irises masked at the eye coordinates. Silhouette, fur edges and layer coordinates are unchanged. The monochrome source is kept as the script's input.
+
+
 Saved as `public/images/mochi-cutout.png`. Generated using the built-in image generation tool, based on the owner’s supplied photos. This is an editorial interpretation of Mochi, not an unaltered photograph. The original generated 1024×1536 RGBA asset is preserved; monochrome treatment and 2.5D layering happen in CSS.
 
 # Mochi cutout

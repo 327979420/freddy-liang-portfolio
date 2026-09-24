@@ -7,7 +7,7 @@ export const projects = {
   sage: {
     name: 'Sage Vista', category: 'Quantitative trading research platform',
     keywords: ['SYSTEMS', 'INSIGHT'],
-    url: 'https://sage-vista-parallel.gizmo-allied-0s.workers.dev/zh/watch/resonance/rare-opportunities',
+    url: 'https://sage.freddyliang.com',
     image: '/images/sage-vista-candidates.png',
   },
   rebate: {

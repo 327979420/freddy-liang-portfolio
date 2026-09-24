@@ -1,6 +1,6 @@
 # Pending design changes
 
-Status: captured for discussion on 24 September 2026. **Do not implement until Freddy asks to proceed.** The user explicitly said to listen and plan without changing the code or website. Publishing this source repository does not approve the following design changes.
+Status: **implemented in source on 24 September 2026 (Sprint 1.6)** after Freddy approved the storyboard. Not yet deployed. The original requests are kept below for context.
 
 ## 1. Restore Mochi's natural colour
 
@@ -23,6 +23,25 @@ User request: the ending repeats the hero and feels boring. Discuss revising it 
 Assistant proposal, **not a confirmed decision**: remove the repeated oversized name and returning Mochi; allow Journey to be the final personal moment; follow it with a compact Email / LinkedIn / GitHub area. Optionally repeat SYSTEMS / CLARITY / INSIGHT in small type to reinforce recall without reproducing the hero.
 
 Before implementation, agree the final ending treatment with Freddy. Do not silently treat the assistant's recommendation as user approval.
+
+## Decisions from Freddy, 24 September 2026 (Claude session)
+
+- **Ending → icon contact.** Journey is the last personal moment, followed by a compact contact area of Email / LinkedIn / GitHub line icons with text labels, a tiny SYSTEMS / CLARITY / INSIGHT line and back-to-top. Email: liangfreddy164@gmail.com.
+- **Journey position:** kept after Lab (the pasted master brief's rhythm placed it after Sage Vista; Freddy's later instruction wins).
+- **Mochi colour → recolour the existing cutout.** Approved and integrated: seal-point colouring with blue irises and dark pupils, same silhouette and layer coordinates.
+- **Chapters → header chapter indicator (option c)**, plus prominent chapter titles, spacing and atmosphere shifts per Freddy's brief.
+- **No CV link.** Not needed on the site.
+- **Sage Vista link → https://sage.freddyliang.com** (English by default), replacing the `/zh/…` workers.dev URL in `app/content.ts`.
+
+## Sprint 1.6 storyboard pass (approved and implemented)
+
+- Sage Vista: small monochrome image at rest → grows to ~62vw with colour and cool light through its pinned scroll, or on hover.
+- Trading Analytics: reduced to a short "case in preparation" beat on a structural grid until Power BI material arrives.
+- Max-Rebate: closed letterbox that opens and gains colour with scroll/hover; the real capture pans through it.
+- Lab: hovered window comes forward in colour; fast pointer movement leaves short-lived fragments of the real Discord output.
+- Journey: condensed chapter title, softened photo edges, route previews on hover/focus.
+- Global: cursor label (VIEW LIVE ↗ / VISIT SITE ↗ / VIEW PROJECT ↗), faint cursor light, one-time title/image reveals, Lenis smooth scrolling (off for reduced motion).
+- Still needed: Power BI screenshots (and optional case outline); personal Journey photos would strengthen that chapter.
 
 ## Suggested implementation order once authorized
 
