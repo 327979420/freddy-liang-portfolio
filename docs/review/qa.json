@@ -1,0 +1,45 @@
+{
+  "failures": [],
+  "errors": [],
+  "layouts": [
+    {
+      "width": 320,
+      "scroll": 320,
+      "height": 6875
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "height": 7050
+    },
+    {
+      "width": 600,
+      "scroll": 600,
+      "height": 7400
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "height": 7738
+    },
+    {
+      "width": 1024,
+      "scroll": 1024,
+      "height": 7592
+    },
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "height": 9400
+    },
+    {
+      "width": 1920,
+      "scroll": 1920,
+      "height": 10152
+    }
+  ],
+  "sageWidths": {
+    "small": 360.32806396484375,
+    "large": 820.7968139648438
+  }
+}
