@@ -13,7 +13,7 @@ This repository is the portable editing handoff for Freddy Liang's personal port
 
 Sprint 1.5 is a dark, cinematic, image-led homepage supporting Business Analyst / Data Analyst applications. Keep the restrained material background, large editorial typography, real project images, usable links and a few purposeful interactions. Avoid a generic grid, SaaS cards, long copy, neon or AI as the headline theme.
 
-Sequence: opening → I Profile (Freddy and Mochi) → II Selected Work (threshold → Sage Vista → reserved Trading Analytics → Max-Rebate → Lab) → III Journey → IV Contact. The repeated name/Mochi ending was removed in Sprint 1.6.
+Sequence: opening → I Profile (Freddy and Mochi) → II Selected Work (threshold → Trading Analytics / Power BI → Sage Vista → Lab) → III Journey → IV Contact. The repeated name/Mochi ending was removed in Sprint 1.6.
 
 Journey belongs **after Lab**. SYSTEMS / CLARITY / INSIGHT must remain memorable and recur meaningfully. Always identify what a project actually is:
 
@@ -21,7 +21,6 @@ Journey belongs **after Lab**. SYSTEMS / CLARITY / INSIGHT must remain memorable
 | --- | --- | --- |
 | Sage Vista | Quantitative trading research platform | SYSTEMS / INSIGHT |
 | Trading Analytics | Trading analytics dashboard · Power BI | INSIGHT / CLARITY |
-| Max-Rebate | Trading rebate website | CLARITY / SYSTEMS |
 | Lab | Automation tools & Discord apps | SYSTEMS |
 
 The current image treatment and motion were approved as a substantial improvement. The user then requested three refinements; see docs/NEXT-CHANGES.md for the precise boundary between requests and proposals.
@@ -46,14 +45,18 @@ The current image treatment and motion were approved as a substantial improvemen
 - The opening lasts two seconds and can be skipped with input. Reduced motion bypasses it.
 - Mochi responds to pointer approach, looks toward hovered links, reacts to touch, and resets when the pointer leaves the page.
 - The header chapter indicator must stay in sync with the four `data-chapter` sections.
-- Sage Vista starts small and monochrome and grows with its pinned scroll (and hover); Max-Rebate opens from a letterbox. On fine pointers a cursor label replaces the static gateway label; touch keeps the static label.
+- Sage Vista: one stage with four thumbnails and arrows; auto-advances every 6 s until the visitor interacts. Click the stage to open the focus viewer.
+- Journey: scrolling through the sticky track moves city by city; every control scrolls to the matching city. On fine pointers a cursor label replaces the static gateway label; touch keeps the static label.
 - Lenis smooth scrolling is disabled for reduced motion; titles and images reveal once on entry, and are simply present without motion.
 - Sage Vista grows with scroll/hover; its image opens the real live project in a new tab.
-- Max-Rebate pans through a genuine English capture; its image opens the live website.
 - Lab has two apps shown in three views. Each view opens the relevant public repository; do not invent a third app.
 - Journey works through horizontal dragging, previous/next buttons, city buttons and keyboard controls.
 - Journey photography is credited city reference imagery, not the owner's personal photos. Do not invent dates, education, employment or anecdotes.
-- Power BI is deferred. Do not fabricate dashboards or build detailed case-study pages in this sprint.
+- Power BI shows three real, anonymised dashboard pages in a depth stack; selecting one opens a full-screen viewer. Do not invent metrics or case-study text.
+- Max-Rebate was removed from the site on 25 September 2026 at Freddy's request.
+- Journey shows a credited city photo by default; clicking the panel or the small photo swaps in Freddy's own photo from that city.
+- Clicking the hero name (no hover portrait; it was removed), ABOUT FREDDY, or the portrait in the Profile introduction scene (`#about`) opens the Profile panel (text in `app/content.ts`).
+- Project captions for Sage Vista and Power BI live in `app/content.ts` (`sageFrames[].caption`, `dashboardPages[].caption`). They are Claude-drafted and need Freddy's review.
 - Keep contact destinations in app/content.ts. Do not invent project performance claims.
 
 ## Validation

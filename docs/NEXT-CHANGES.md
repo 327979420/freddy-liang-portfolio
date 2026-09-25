@@ -43,6 +43,42 @@ Before implementation, agree the final ending treatment with Freddy. Do not sile
 - Global: cursor label (VIEW LIVE ↗ / VISIT SITE ↗ / VIEW PROJECT ↗), faint cursor light, one-time title/image reveals, Lenis smooth scrolling (off for reduced motion).
 - Still needed: Power BI screenshots (and optional case outline); personal Journey photos would strengthen that chapter.
 
+## Sprint 1.7 (25 September 2026)
+
+- Sage Vista tour uses four real screens (Opportunities, Decision logic detail, Daily patterns, Sectors); image growth takes the first ~20% of the pin, then frames step with a caption, counter and progress ticks. Phones get a swipe strip.
+- Shared screenshot grade (`--grade`, `--grade-tint`) keeps white product UI below the page's own paper tone.
+- Max-Rebate removed; projects renumbered 01—03.
+- Power BI: three real pages, depth stack + full-screen viewer. "What separates client outcomes?" is only 648px wide; a larger export would read better in the viewer.
+- Journey: two photos per city (credited skyline + Freddy's own photo).
+- Profile panel from the hero name / ABOUT FREDDY, with a pointer-following portrait on hover.
+- Footer: SYSTEMS / CLARITY / INSIGHT · AI-EMPOWERED.
+
+## Sprint 1.8 (25 September 2026): keep the coolness, add comprehension
+
+- Sage Vista rebuilt: no pinned scroll. A numbered index of four screens sits under the title; hovering/tapping swaps the stage instantly with a one-to-two-line caption. The stage scales in with scroll using transforms only (no layout transitions, which caused the lag). Clicking the stage opens a shared focus viewer with the caption and VIEW LIVE.
+- Power BI uses the same focus viewer; hovering a page shows its caption under the title.
+- Captions are drafted from what each screenshot shows. **Freddy to review the wording** in `app/content.ts`.
+- Opening names the site ("FREDDY LIANG / PERSONAL PORTFOLIO") from the first frame. A new Profile introduction scene (`#about`) sits between the hero and Selected Work: one editorial sentence, three facts, and a portrait that grows on hover and opens the full Profile panel.
+
+## Sprint 1.9 (26 September 2026)
+
+- New professional headshot for the Profile introduction and panel; the Melbourne Journey photo stays the graduation photo.
+- Profile copy leads with experience; "Looking for" is Business Analyst roles. An Experience list is ready in `app/content.ts` (`profile.experience`) and stays hidden until real entries are added.
+- Lab: one-line description inside each window; layout regrouped as two apps / three views (no tilts).
+- Journey: only the small photo toggles the personal picture; arrows keep a normal cursor.
+- Removed the pointer-following portrait on the hero name (it drifted during scroll).
+- Performance: no mix-blend layers, Sage colour switches once on entry (data-lit) instead of per-frame filters, the scroll loop only restyles near-screen sections when values change, async image decoding. Measured full-page wheel scroll: no frames over 20 ms.
+
+## Sprint 2.0 (26 September 2026)
+
+- Hero: "MY CAT, MOCHI" label points to Mochi from the left.
+- Profile portrait keeps soft natural colour (no black-and-white rest state).
+- Project order: 01 Trading Analytics (Power BI), 02 Sage Vista, 03 Lab. The Selected Work threshold previews the Power BI overview.
+- Sage Vista: four visible thumbnails under the stage plus large arrows; auto-advances every 6 s while in view (progress bar on the active thumbnail), pauses while the screens are hovered or a viewer is open, and stops for good once the visitor chooses a screen. Reduced motion: no auto-advance.
+- Journey: a 360svh track with a sticky frame; scrolling moves city by city and fills the route line. Arrows, city buttons, drag and keys scroll to the matching city (via Lenis when active).
+
+- Profile introduction: statement shortened to "I turn messy problems and raw data into clearer requirements, better processes and useful insight"; facts enlarged; Experience adds Software.
+
 ## Suggested implementation order once authorized
 
 1. Confirm the ending and chapter transitions in a concise text plan.

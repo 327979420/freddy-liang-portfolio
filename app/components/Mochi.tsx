@@ -53,7 +53,7 @@ export default function Mochi() {
   }, []);
 
   return <button ref={ref} className="mochi-object" data-awake={awake}
-    aria-label="Make Mochi look at you" aria-pressed={awake} onClick={() => setAwake(value => !value)}>
+    aria-label="Mochi, Freddy’s cat. Make him look at you" aria-pressed={awake} onClick={() => setAwake(value => !value)}>
     <span className="mochi-shadow" aria-hidden="true" />
     <span className="mochi-layers" aria-hidden="true">
       <img className="mochi-body" src={SRC} alt="" width="1024" height="1536" fetchPriority="high" loading="eager" draggable="false" />
@@ -62,6 +62,6 @@ export default function Mochi() {
       <img className="mochi-ear mochi-ear--right" src={SRC} alt="" width="1024" height="1536" draggable="false" />
       <img className="mochi-eyes" src={SRC} alt="" width="1024" height="1536" draggable="false" />
     </span>
-    <span className="mochi-caption">MOCHI <span>move a little closer</span></span>
+    <span className="mochi-name" aria-hidden="true"><span>MY CAT, MOCHI</span><span>move a little closer</span></span>
   </button>;
 }

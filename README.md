@@ -6,7 +6,7 @@ A personal portfolio for business and data analysis work, built around **systems
 
 ![Freddy Liang and Mochi, current homepage](docs/review/01-identity.png)
 
-The homepage unfolds through interactive Mochi, selected projects, and a draggable journey through Seattle, Beijing, Shenzhen and Melbourne. Project images open Sage Vista, Max-Rebate and the relevant Lab repositories. Power BI remains reserved until its real preview is supplied.
+The homepage unfolds through interactive Mochi, selected projects, and a draggable journey through Seattle, Beijing, Shenzhen and Melbourne. Project images open Sage Vista and the relevant Lab repositories; the Power BI pages open in a full-screen viewer. A Profile panel opens from the hero name.
 
 ## Run locally
 

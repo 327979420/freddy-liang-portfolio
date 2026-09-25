@@ -2,9 +2,14 @@
 
 ## Owner-supplied project imagery
 
-Sage Vista Candidates, Max-Rebate homepage, Discord app output, and the tree photograph used as a very faint material texture were supplied by Freddy. Supplied project images are preserved in public/images; web presentation uses CSS crops and filters. Mochi’s colour references are included in docs/references. The Discord composition contains two apps and three displayed views.
+Sage Vista Candidates, Discord app output, and the tree photograph used as a very faint material texture were supplied by Freddy. Supplied project images are preserved in public/images; web presentation uses CSS crops and filters. Mochi’s colour references are included in docs/references. The Discord composition contains two apps and three displayed views.
 
-The long Max-Rebate image is an actual English-language browser capture of https://max-rebate.com/ taken on 24 September 2026 at 1440px width. No screenshot contents were generated.
+## Owner-supplied photographs and screenshots (25 September 2026)
+
+- Sage Vista screens (`public/images/sage/`): Multi-Factor Opportunities, a Daily Pattern chart and the Sector overview, supplied by Freddy.
+- Power BI pages (`public/images/powerbi/`): Client performance, What separates client outcomes?, and The evidence behind the patterns. Client names are anonymised in the source dashboards.
+- Personal photographs of Freddy (`public/images/journey/memories/`), one per Journey city; the Melbourne graduation photo is also cropped for `public/images/profile-portrait.webp`. An app watermark was cropped from the Shenzhen photo.
+- All were converted to WebP; originals are not stored in the repository. No blanket licence is granted for these images.
 
 ## City reference photography
 
