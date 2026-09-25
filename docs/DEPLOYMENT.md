@@ -1,14 +1,17 @@
 # Hosting and freddyliang.com
 
-## Current state
+## Current state (26 September 2026)
 
-The portfolio is public at **https://freddy-liang-sprint-one.rachelzhanzst.chatgpt.site**.
+**The portfolio is live at https://freddyliang.com and https://www.freddyliang.com**, served by **Cloudflare Pages** (project `freddy-liang-portfolio`, also at https://freddy-liang-portfolio.pages.dev).
 
-GitHub stores the editable source and runs build checks. A GitHub push currently does **not** update the existing live site. The live publication uses Sites hosting; the source can be developed locally by Claude or another editor without access to Sites.
+- Pages is connected to GitHub `327979420/freddy-liang-portfolio`, production branch `main`. **Every push to `main` builds and deploys automatically.** Pushes to other branches get preview URLs.
+- Build settings: framework preset none, build command `npm run build`, output directory `out`, environment variable `NODE_VERSION=22`.
+- DNS (Cloudflare zone in the same account): `CNAME @ → freddy-liang-portfolio.pages.dev` and `CNAME www → freddy-liang-portfolio.pages.dev`, both created by Pages. SSL is active for both.
+- The older Sites deployment at freddy-liang-sprint-one.rachelzhanzst.chatgpt.site still exists with the earlier version. It is no longer the source of truth; retire it when convenient. The Sites DNS/TXT instructions below are historical and were never applied.
 
-As checked on 24 September 2026, freddyliang.com uses Cloudflare nameservers `aida.ns.cloudflare.com` and `steven.ns.cloudflare.com`, but the A records and the two required verification TXT records below were absent. Sites reports `pending`, with SSL `pending_validation`. The browser connection for making authenticated DNS changes was unavailable during handoff. No DNS records were changed.
+## Historical: connecting the domain to Sites (not used)
 
-## Connect the existing domain
+
 
 In Cloudflare, open **freddyliang.com → DNS → Records** and add these records. Use TTL Auto. Set the two A records to **DNS only** (grey cloud). Preserve any mail and unrelated subdomain records.
 

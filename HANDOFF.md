@@ -69,7 +69,7 @@ GitHub Actions runs installation, production build and typecheck on pushes and p
 
 ## Hosting and ownership
 
-The existing site is public and remains hosted on Sites. Domain freddyliang.com is registered with that host but was still pending DNS/SSL validation on 24 September 2026. Exact records and continuation options are in docs/DEPLOYMENT.md.
+The site is live at https://freddyliang.com on Cloudflare Pages, auto-deployed from `main` (since 26 September 2026). See docs/DEPLOYMENT.md.
 
 Baseline source came from Sites commit `6b8afcc6a0bdd64025ef1c7521ff985e1bedc324`, published as version 4 on 24 September 2026. The GitHub repository starts with a clean source snapshot. Existing application and public asset files were copied unchanged; handoff documents and CI were added. Do not assume GitHub and the Sites source repository synchronize automatically.
 
