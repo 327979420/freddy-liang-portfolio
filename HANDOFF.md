@@ -9,7 +9,13 @@ This repository is the portable editing handoff for Freddy Liang's personal port
 3. Review the homepage on desktop and phone before changing it. Use `?intro=off` for normal layout review and remove it to check the two-second opening.
 4. Follow the user's current instruction about whether to plan or implement. At handoff, the visual changes below are discussion requirements only. The latest authorization was to create this repository and document the plan, not to execute those visual changes.
 
-## Current approved baseline
+## Two editions (since 2 October 2026)
+
+- **Business edition**, live at freddyliang.com: `app/page.tsx` → `app/business.tsx`. Short (about five screens): hero (role, positioning line, credentials, CLARITY / INSIGHT / SYSTEMS pillars with proof) → project cards → Journey in browse mode (Melbourne first, arrows) → one project in detail via tabs → contact. All copy comes from Freddy's CV (1 Oct 2026) and lives in `app/content.ts` (`business`, `careerByCity`, `projectCases`, `profile.experience`).
+- **Studio edition** (the cinematic site below): `app/site.tsx` exports `CinematicHome` and all shared scene components. Its route is parked in `app/_studio/` (an underscore folder is not routed, so it is not published). Rename the folder to `app/studio/` to serve it at /studio again. The exact published version is git tag `v1-cinematic`.
+- No Mochi, Studio link, phone number or visa status on the business edition, at Freddy's request.
+
+## Current approved baseline (studio edition)
 
 Sprint 1.5 is a dark, cinematic, image-led homepage supporting Business Analyst / Data Analyst applications. Keep the restrained material background, large editorial typography, real project images, usable links and a few purposeful interactions. Avoid a generic grid, SaaS cards, long copy, neon or AI as the headline theme.
 
@@ -29,7 +35,8 @@ The current image treatment and motion were approved as a substantial improvemen
 
 | File | Purpose |
 | --- | --- |
-| app/page.tsx | Scene order, scroll motion, project links, Lab interaction and Journey controls |
+| app/page.tsx, app/business.tsx | Business edition (home page) |
+| app/site.tsx | Shared components, scroll motion, and the studio edition (`CinematicHome`) |
 | app/components/Mochi.tsx | Layered colour cat artwork, approach/look response, link glances and touch toggle |
 | scripts/recolour-mochi.py | Regenerates the colour Mochi from `mochi-cutout.png` (needs Pillow + NumPy) |
 | app/globals.css | Material background, scene compositions, responsive and reduced-motion behavior |

@@ -46,7 +46,12 @@ export const profile = {
     { label: 'Looking for', value: 'Business Analyst roles' },
   ],
   /* Work history for the Profile panel: add real entries here (role, organisation, period, one line). Empty = section hidden. */
-  experience: [] as { role: string; organisation: string; period: string; line: string }[],
+  experience: [
+    { role: 'Financial Account Manager', organisation: 'TMGM', period: 'Apr 2026 – Present · Melbourne', line: 'Manage 180+ retail clients; built a Power BI analysis of client trading behaviour.' },
+    { role: 'Agile Project Manager (Internship)', organisation: 'Focus Bear', period: 'Feb 2025 – Jun 2025 · Melbourne', line: 'Requirements gathering, user stories with acceptance criteria, Scrum Master.' },
+    { role: 'Solution Consultant (Internship)', organisation: 'SF Technology Group', period: 'Jun 2023 – Nov 2023 · Shenzhen', line: 'Validated Estée Lauder’s SAP data migration; scenario-tested orders and returns.' },
+    { role: 'Product Analyst (Internship)', organisation: 'ByteDance', period: 'Aug 2021 – Nov 2021 · Beijing', line: 'Analysed creator and campaign data for campaigns reaching 1.5M+ views.' },
+  ] as { role: string; organisation: string; period: string; line: string }[],
   lines: [
     'I’m targeting Business Analyst roles, especially where customer needs, data and systems come together.',
     'I like turning messy problems and raw data into something practical: clearer requirements, better processes, useful insights, or a better customer experience.',
@@ -109,4 +114,66 @@ export const cities = [
     "width": 1920,
     "height": 1282
   }
+] as const;
+
+/* ---------- Business edition (freddyliang.com). All facts from Freddy's CV, 1 October 2026. ---------- */
+
+export const business = {
+  headline: 'Business & Data Analyst',
+  location: 'Melbourne',
+  positioning: 'I connect what people need with what the data shows, and build the proof.',
+  credentials: ['Information Systems graduate', 'PL-300 Power BI', 'Currently at TMGM'],
+  /* The three keywords as reasons to hire, each backed by facts from the CV. */
+  pillars: [
+    { keyword: 'CLARITY', claim: 'I understand the people.', proof: ['Psychology degree', '180+ clients', '800+ creators coordinated'] },
+    { keyword: 'INSIGHT', claim: 'I work with real data.', proof: ['Power BI on live client trading data', '62,000+ signal events audited'] },
+    { keyword: 'SYSTEMS', claim: 'I build what I recommend.', proof: ['A live research platform', 'Automations running daily'] },
+  ],
+};
+
+/* What each city meant: study and roles, in order. */
+export const careerByCity: Record<string, { org: string; role: string; period: string; line: string }[]> = {
+  Seattle: [{ org: 'University of Washington', role: 'B.A. Psychology', period: '2017 – 2021', line: 'Major GPA 3.88 / 4.00 · Annual Dean’s List 2019–2021.' }],
+  Beijing: [{ org: 'ByteDance', role: 'Product Analyst (Internship)', period: 'Aug – Nov 2021', line: 'Analysed creator and campaign data for campaigns reaching 1.5M+ views; coordinated 800+ creators.' }],
+  Shenzhen: [{ org: 'SF Technology Group', role: 'Solution Consultant (Internship)', period: 'Jun – Nov 2023', line: 'Validated Estée Lauder’s data migration from SAP and scenario-tested orders and returns before Black Friday.' }],
+  Melbourne: [
+    { org: 'TMGM', role: 'Financial Account Manager', period: 'Apr 2026 – now', line: '180+ retail clients; Power BI analysis of client trading behaviour.' },
+    { org: 'Focus Bear', role: 'Agile Project Manager (Internship)', period: 'Feb – Jun 2025', line: 'Requirements, user stories with acceptance criteria, Scrum Master in GitHub Projects.' },
+    { org: 'University of Melbourne', role: 'Master of Information Systems', period: '2024 – 2025', line: 'H2A · first author of an EAPJ publication on AI-powered cloud systems.' },
+  ],
+};
+
+/* Each project as a short case: the question, what Freddy did, tools, and what it shows. Draft wording from the CV. */
+export const projectCases = [
+  { id: 'trading-analytics', name: 'Trading Analytics', kind: 'Power BI dashboard · TMGM', image: '/images/powerbi/overview.webp',
+    glance: 'What separates profitable clients from the rest?',
+    problem: 'What separates profitable and unprofitable clients?',
+    did: 'Cleaned several thousand trade records; built DAX measures and three dashboard pages.',
+    tools: ['Power BI', 'Power Query', 'DAX', 'Excel'],
+    result: 'Three dashboard pages that move from overview, to comparison, to the evidence behind each pattern.' },
+  { id: 'sage-vista', name: 'Sage Vista', kind: 'Equity research platform', image: '/images/sage/opportunities.webp',
+    glance: 'A screener that explains every pick and checks itself.',
+    problem: 'Can a stock screener explain every pick, and check itself?',
+    did: 'Built a bilingual platform; audited 62,000+ signal events across 39 factors.',
+    tools: ['Python', 'TypeScript', 'React'],
+    result: 'Results reported transparently, including where higher scores did not lead to better outcomes.' },
+  { id: 'lab', name: 'Market Intelligence Automations', kind: 'Discord apps', image: '/images/lab-discord-apps.png',
+    glance: 'Market attention, news and sentiment, delivered automatically.',
+    problem: 'Can market attention, news and sentiment arrive automatically?',
+    did: 'Built a Reddit attention radar, a 10-minute news feed and a daily sentiment card.',
+    tools: ['Python', 'GitHub Actions', 'Docker'],
+    result: 'Automations that run on schedule with duplicate checks, posting straight to Discord.' },
+] as const;
+
+export const skillGroups = [
+  { keyword: 'CLARITY', title: 'Business analysis', items: ['Requirements gathering', 'User stories & acceptance criteria', 'Stakeholder management', 'Agile / Scrum'] },
+  { keyword: 'INSIGHT', title: 'Data analysis', items: ['Data cleaning & validation', 'Metric definition', 'Dashboard design', 'Data quality checks'] },
+  { keyword: 'SYSTEMS', title: 'Tools', items: ['SQL', 'Excel', 'Power BI (Power Query, DAX)', 'Python', 'Jira', 'GitHub Projects'] },
+] as const;
+
+export const education = [
+  { title: 'Master of Information Systems', detail: 'University of Melbourne · 2024 – 2025 · H2A' },
+  { title: 'B.A. Psychology', detail: 'University of Washington · 2017 – 2021 · GPA 3.88' },
+  { title: 'Microsoft PL-300', detail: 'Power BI Data Analyst certification' },
+  { title: 'CFA Level I', detail: 'CFA Institute' },
 ] as const;

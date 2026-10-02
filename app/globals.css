@@ -3489,3 +3489,594 @@ html:has(dialog[open]) {
   }
 
 }
+
+/* ======================================================================
+   Business edition (freddyliang.com). Same theme and components as the
+   studio edition; short page, one focal point per section (.business).
+   ====================================================================== */
+
+.visually-hidden {
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap
+}
+
+/* Hero: the role is the one large thing on screen. */
+.ba-hero2 {
+  min-height:92svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding:120px 6vw 8vh
+}
+
+.ba-person {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  text-align:left
+}
+
+.ba-person {
+  gap:22px
+}
+
+.ba-person img {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:50% 22%;
+  filter:saturate(.8);
+  outline:1px solid #3a4038;
+  outline-offset:3px
+}
+
+.ba-person span {
+  display:grid;
+  gap:3px
+}
+
+.ba-person strong {
+  font-size:20px;
+  font-weight:500;
+  color:var(--paper)
+}
+
+.ba-person em {
+  font:10px var(--mono);
+  font-style:normal;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#8d958a
+}
+
+.ba-headline {
+  margin-top:3.5vh;
+  font-family:var(--display);
+  font-stretch:64%;
+  font-weight:540;
+  font-size:clamp(60px,min(8.6vw,15vh),170px);
+  line-height:.86;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  color:var(--paper)
+}
+
+.ba-summary {
+  max-width:720px;
+  margin-top:4vh;
+  font-size:clamp(17px,1.35vw,21px);
+  line-height:1.55;
+  color:#b9bdb3
+}
+
+.ba-strengths {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  list-style:none;
+  margin:22px 0 0;
+  padding:0
+}
+
+.ba-strengths li {
+  padding:6px 10px;
+  border:1px solid #3a4038;
+  font:10px var(--mono);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#cfd3c9
+}
+
+.ba-ctas {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:5vh
+}
+
+.ba-button {
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 20px;
+  background:var(--paper);
+  color:#0b0c0b;
+  font:11px var(--mono);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  transition:background .3s,color .3s
+}
+
+.ba-button:hover {
+  background:#fff
+}
+
+.ba-button--ghost {
+  background:transparent;
+  color:var(--paper);
+  box-shadow:inset 0 0 0 1px #4a5248
+}
+
+.ba-button--ghost:hover {
+  background:#161916
+}
+
+/* Projects at a glance: three large image cards. */
+.ba-projects {
+  padding:12vh 6vw 12vh
+}
+
+.ba-section-head h2 {
+  margin-top:14px;
+  font-family:var(--display);
+  font-stretch:64%;
+  font-weight:540;
+  font-size:clamp(56px,6vw,104px);
+  line-height:.85;
+  text-transform:uppercase
+}
+
+.ba-cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2vw;
+  list-style:none;
+  margin:6vh 0 0;
+  padding:0
+}
+
+.ba-cards button {
+  display:grid;
+  gap:10px;
+  width:100%;
+  text-align:left
+}
+
+.card-image {
+  display:block;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  outline:1px solid #262b25
+}
+
+.card-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:0 0;
+  filter:grayscale(.55) brightness(.8);
+  transition:filter .45s,transform .8s var(--ease)
+}
+
+.ba-cards button:hover .card-image img,.ba-cards button:focus-visible .card-image img {
+  filter:var(--grade);
+  transform:scale(1.03)
+}
+
+.card-meta {
+  margin-top:8px;
+  font:10px var(--mono);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#8d958a
+}
+
+.card-meta em {
+  font-style:normal;
+  color:#a9c0b9;
+  margin-right:12px
+}
+
+.card-name {
+  font-size:clamp(22px,1.8vw,30px);
+  letter-spacing:-.025em;
+  color:var(--paper)
+}
+
+.card-line {
+  font-size:15px;
+  line-height:1.45;
+  color:#a9ada3
+}
+
+/* Journey in browse mode: one screen, Melbourne first, arrows for the rest. */
+.business .journey-scene {
+  padding:10vh 0 8vh
+}
+
+.business .journey-heading h2 {
+  font-size:clamp(56px,6vw,104px)
+}
+
+.journey-track[data-mode=browse] {
+  height:auto
+}
+
+.journey-track[data-mode=browse] .journey-sticky {
+  position:static;
+  height:auto;
+  padding-top:4vh
+}
+
+.journey-track[data-mode=browse] .journey-panel {
+  height:min(70vh,640px)
+}
+
+.business .city-display {
+  top:10%
+}
+
+.business .city-display>p {
+  font-size:clamp(52px,5.6vw,100px)
+}
+
+.business .journey-images:after {
+  background:linear-gradient(90deg,#070707e6 0%,#070707a6 38%,transparent 72%),linear-gradient(#07070780,transparent 40%,#070707c9)
+}
+
+.city-career {
+  list-style:none;
+  display:grid;
+  gap:16px;
+  max-width:min(560px,46vw);
+  margin:22px 0 0;
+  padding:0;
+  animation:city-enter .6s var(--ease) both
+}
+
+.city-career li {
+  padding-left:16px;
+  border-left:1px solid #a9c0b9
+}
+
+.career-head {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:4px 14px
+}
+
+.career-head strong {
+  font-size:18px;
+  font-weight:500;
+  color:var(--paper)
+}
+
+.career-head span {
+  font:11px var(--mono);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#c3cdbe
+}
+
+.career-head em {
+  font:10px var(--mono);
+  font-style:normal;
+  color:#8d958a
+}
+
+.career-line {
+  margin-top:6px;
+  font-size:14px;
+  line-height:1.5;
+  color:#cfd3c9
+}
+
+/* Project detail: tabs, then the chosen project's scene and summary. */
+.ba-detail {
+  padding-top:6vh
+}
+
+.ba-tabs {
+  display:flex;
+  gap:2vw;
+  margin:0 6vw;
+  border-bottom:1px solid #2c312b
+}
+
+.ba-tabs button {
+  position:relative;
+  padding:16px 0;
+  font-size:17px;
+  color:#7b8278;
+  transition:color .3s
+}
+
+.ba-tabs button em {
+  font:10px var(--mono);
+  font-style:normal;
+  margin-right:10px;
+  color:#4f564d
+}
+
+.ba-tabs button:hover,.ba-tabs button[aria-selected=true] {
+  color:var(--paper)
+}
+
+.ba-tabs button[aria-selected=true] em {
+  color:#a9c0b9
+}
+
+.ba-tabs button[aria-selected=true]:after {
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:2px;
+  background:#a9c0b9
+}
+
+/* Shorter project scenes inside the detail area. */
+.business .analytics-scene {
+  height:92svh;
+  min-height:720px
+}
+
+.business .sage-scene {
+  height:100svh;
+  min-height:820px
+}
+
+.business .lab-scene {
+  height:100svh;
+  min-height:880px
+}
+
+.business .ghost-word {
+  display:none
+}
+
+.project-case {
+  padding:0 6vw 12vh
+}
+
+.project-case dl {
+  display:grid;
+  grid-template-columns:1fr 1.2fr .9fr;
+  gap:3vw;
+  margin:0;
+  padding-top:22px;
+  border-top:1px solid #2c312b
+}
+
+.project-case dt {
+  font:10px var(--mono);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#a9c0b9;
+  margin-bottom:10px
+}
+
+.project-case dd {
+  margin:0;
+  font-size:16px;
+  line-height:1.5;
+  color:#c3c7bd
+}
+
+.case-tools {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px
+}
+
+.case-tools span {
+  padding:5px 9px;
+  border:1px solid #3a4038;
+  font:10px var(--mono);
+  letter-spacing:.03em;
+  color:#d6d9d0
+}
+
+@media(max-width:1000px) {
+  .ba-cards {
+    grid-template-columns:1fr 1fr
+  }
+
+}
+
+@media(max-width:600px) {
+  .ba-hero2 {
+    min-height:0;
+    padding:110px 6vw 70px
+  }
+
+  .ba-headline {
+    font-size:17vw
+  }
+
+  .ba-ctas {
+    flex-direction:column;
+    align-items:stretch;
+    width:100%
+  }
+
+  .ba-button {
+    justify-content:space-between
+  }
+
+  .ba-projects {
+    padding:70px 6vw
+  }
+
+  .ba-cards {
+    grid-template-columns:1fr;
+    gap:40px
+  }
+
+  .ba-tabs {
+    overflow-x:auto;
+    gap:22px;
+    scrollbar-width:none
+  }
+
+  .ba-tabs button {
+    flex:0 0 auto;
+    font-size:15px
+  }
+
+  .journey-track[data-mode=browse] .journey-panel {
+    height:560px
+  }
+
+  .business .city-display {
+    top:7%;
+    right:6vw
+  }
+
+  .business .city-display>p {
+    font-size:13vw
+  }
+
+  .city-career {
+    max-width:calc(100% - 100px);
+    gap:10px;
+    margin-top:12px
+  }
+
+  .career-head strong {
+    font-size:14px
+  }
+
+  .career-line {
+    font-size:12px
+  }
+
+  .business .analytics-scene,.business .sage-scene,.business .lab-scene {
+    height:auto;
+    min-height:0
+  }
+
+  .project-case dl {
+    grid-template-columns:1fr
+  }
+
+}
+
+/* Hero flow: what Freddy is → why he is different → the three reasons, each with proof. */
+.ba-positioning {
+  max-width:24em;
+  margin-top:3vh;
+  font-size:clamp(22px,2.1vw,36px);
+  line-height:1.2;
+  letter-spacing:-.025em;
+  color:var(--paper)
+}
+
+.ba-credentials {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 22px;
+  margin-top:16px;
+  font:10px var(--mono);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#8d958a
+}
+
+.ba-credentials span+span:before {
+  content:'/';
+  margin-right:22px;
+  color:#4f564d
+}
+
+.ba-pillars {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3vw;
+  width:100%;
+  list-style:none;
+  margin:5vh 0 0;
+  padding:0
+}
+
+.ba-pillars li {
+  display:grid;
+  gap:8px;
+  align-content:start;
+  padding-top:16px;
+  border-top:1px solid #3a4038
+}
+
+.pillar-keyword {
+  font:11px var(--mono);
+  letter-spacing:.1em;
+  color:#a9c0b9
+}
+
+.ba-pillars strong {
+  font-size:clamp(19px,1.55vw,26px);
+  font-weight:500;
+  letter-spacing:-.02em;
+  color:var(--paper)
+}
+
+.pillar-proof {
+  font-size:14px;
+  line-height:1.5;
+  color:#a3a89e
+}
+
+.business .ba-ctas {
+  margin-top:4.5vh
+}
+
+@media(max-height:820px) and (min-width:601px) {
+  .ba-hero2 {
+    padding-top:96px
+  }
+
+  .ba-person img {
+    width:92px;
+    height:92px
+  }
+
+  .ba-pillars {
+    margin-top:3.5vh
+  }
+
+  .business .ba-ctas {
+    margin-top:3vh
+  }
+
+}
+
+@media(max-width:600px) {
+  .ba-person img {
+    width:96px;
+    height:96px
+  }
+
+  .ba-pillars {
+    grid-template-columns:1fr;
+    gap:22px
+  }
+
+}

@@ -1,6 +1,6 @@
 # Freddy Liang · Portfolio
 
-A personal portfolio for business and data analysis work, built around **systems, clarity and insight**.
+A personal portfolio for business and data analysis work, built around **systems, clarity and insight**. The home page is the business edition; the cinematic studio edition is kept in the repo (see HANDOFF.md).
 
 [View the live portfolio](https://freddy-liang-sprint-one.rachelzhanzst.chatgpt.site) · [Continue with Claude](HANDOFF.md) · [Domain setup](docs/DEPLOYMENT.md)
 

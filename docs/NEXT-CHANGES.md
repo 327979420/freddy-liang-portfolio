@@ -79,6 +79,12 @@ Before implementation, agree the final ending treatment with Freddy. Do not sile
 
 - Profile introduction: statement shortened to "I turn messy problems and raw data into clearer requirements, better processes and useful insight"; facts enlarged; Experience adds Software.
 
+## Business edition (published 2 October 2026)
+
+- Freddy asked for a practical BA/DA version for employers; the cinematic site is kept as the studio edition (tag `v1-cinematic`, parked in `app/_studio`).
+- Iterations: full restructure → simplified (one focal point per screen) → compact (≈5 screens: cards + tabbed detail, Journey browse mode, newest city first) → content upgrade (positioning line and CLARITY / INSIGHT / SYSTEMS as reasons to hire, each with CV-backed proof; larger photo).
+- Not yet done: captions and case wording review by Freddy; any measurable outcome from the TMGM analysis would strengthen the INSIGHT pillar.
+
 ## Suggested implementation order once authorized
 
 1. Confirm the ending and chapter transitions in a concise text plan.
