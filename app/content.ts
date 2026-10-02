@@ -122,7 +122,6 @@ export const business = {
   headline: 'Business & Data Analyst',
   location: 'Melbourne',
   positioning: 'I connect what people need with what the data shows, and build the proof.',
-  credentials: ['Information Systems graduate', 'PL-300 Power BI', 'Currently at TMGM'],
   /* The three keywords as reasons to hire, each backed by facts from the CV. */
   pillars: [
     { keyword: 'CLARITY', claim: 'I understand the people.', proof: ['Psychology degree', '180+ clients', '800+ creators coordinated'] },

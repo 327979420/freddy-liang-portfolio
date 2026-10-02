@@ -60,7 +60,6 @@ export default function BusinessHome() {
         </button>
         <h1 id="identity-title" className="ba-headline">{business.headline}</h1>
         <p className="ba-positioning">{business.positioning}</p>
-        <p className="ba-credentials">{business.credentials.map(item => <span key={item}>{item}</span>)}</p>
         <ul className="ba-pillars">{business.pillars.map(item => <li key={item.keyword}>
           <span className="pillar-keyword">{item.keyword}</span>
           <strong>{item.claim}</strong>
@@ -87,7 +86,7 @@ export default function BusinessHome() {
       </section>
 
       {/* Journey: Melbourne first; the arrows browse the rest. */}
-      <Journey mark="III" career={careerByCity} stops={newestFirst} mode="browse" hint="← → SEE OTHER CITIES" line="Four cities, newest first." />
+      <Journey mark="III" career={careerByCity} stops={newestFirst} mode="browse" hint="← → SEE OTHER CITIES" />
 
       {/* One project in detail at a time. */}
       <section className="ba-detail" id="project-detail" aria-label="Project detail">
