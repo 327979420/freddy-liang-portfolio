@@ -85,6 +85,22 @@ Before implementation, agree the final ending treatment with Freddy. Do not sile
 - Iterations: full restructure → simplified (one focal point per screen) → compact (≈5 screens: cards + tabbed detail, Journey browse mode, newest city first) → content upgrade (positioning line and CLARITY / INSIGHT / SYSTEMS as reasons to hire, each with CV-backed proof; larger photo).
 - Not yet done: captions and case wording review by Freddy; any measurable outcome from the TMGM analysis would strengthen the INSIGHT pillar.
 
+## Business edition round 2 (4 October 2026)
+
+- Pillars made specific (Freddy's picks): CLARITY "I turn what clients need into what operations and tech teams can act on."; INSIGHT "I work with real market data."; SYSTEMS "I ship trading research tools that run on live market data." with proof links to sage.freddyliang.com and both Discord-app repos. Positioning sentence removed.
+- Profile panel: trader line ("I'm also an active trader…"); Close button pinned so it is always visible.
+- Hero buttons centred and larger with a breathing ring (off for reduced motion).
+- Project cards: "Click to explore" cue on each image plus clear links (Sage Vista: Live site + GitHub; Automations: both repos; Trading Analytics: explore the dashboards). Project summaries end with link buttons. Project tabs are large buttons; unchosen tabs breathe.
+- Sage Vista card line: "A multi-factor signal engine for US equities, audited across 62,000+ events."
+
+- Text review: each fact said once (Journey shows role · company · dates only; 62,000+ on hero and Sage card only; card lines say what each project is), consistent names (Business & Data Analyst; Trading research platform (US equities); Power BI dashboard · TMGM; "Market intelligence."), section labels reduced to numerals, project taglines/keyword tags/"Selected project" labels hidden in the business edition. Scene components take optional copy props so the studio edition keeps its own wording.
+- Layout: project tabs centred; Lab section tall enough for every caption; "Market intelligence." sized to its column.
+- Hero: name large top left, large round photo top right; CLARITY / INSIGHT / SYSTEMS set as large display words with quieter proof; shorter gap before Contact.
+
+### To do, together with Freddy
+
+- Enrich Sage Vista's copy with the platform's own model vocabulary (scoring model, factor names, how candidates are ranked). The repo describes it as a "US equity research and multi-factor signal trading system".
+
 ## Suggested implementation order once authorized
 
 1. Confirm the ending and chapter transitions in a concise text plan.

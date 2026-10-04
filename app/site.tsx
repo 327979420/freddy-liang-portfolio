@@ -176,7 +176,7 @@ const sageItems: ViewerItem[] = sageFrames.map(item => ({ title: item.label, ima
 
 /* Sage Vista: an index of four screens beside one large stage. Choosing a screen swaps it instantly and explains it;
    clicking the stage brings that screen into focus. */
-export function SageVista() {
+export function SageVista({ category = projects.sage.category }: { category?: string } = {}) {
   const [frame, setFrame] = useState(0);
   const [page, setPage] = useState(0);
   const [auto, setAuto] = useState(true);
@@ -187,7 +187,7 @@ export function SageVista() {
     <span className="scene-number">02 / SELECTED PROJECT</span>
     <span className="ghost-word sage-ghost" aria-hidden="true">INSIGHT</span>
     <div className="project-heading">
-      <p className="eyebrow">SYSTEMS THAT MAKE SENSE.</p><h2 id="sage-title" data-reveal>Sage Vista<span className="title-dot">.</span></h2><p className="project-category">{projects.sage.category}</p><Keywords words={projects.sage.keywords} />
+      <p className="eyebrow">SYSTEMS THAT MAKE SENSE.</p><h2 id="sage-title" data-reveal>Sage Vista<span className="title-dot">.</span></h2><p className="project-category">{category}</p><Keywords words={projects.sage.keywords} />
       <div className="screen-caption" aria-live="polite"><p className="caption-label"><span>{String(frame + 1).padStart(2, '0')} / {String(sageFrames.length).padStart(2, '0')}</span>{current.label}</p><p className="caption-text" key={current.label}>{current.caption}</p></div>
       <div className="screen-arrows"><button type="button" onClick={() => choose(frame - 1)} aria-label="Previous screen">←</button><button type="button" onClick={() => choose(frame + 1)} aria-label="Next screen">→</button><a className="live-link" href={projects.sage.url} target="_blank" rel="noopener noreferrer">VIEW LIVE SITE <span>↗</span></a></div>
     </div>
@@ -212,7 +212,7 @@ export function SageVista() {
 
 const dashboardItems: ViewerItem[] = dashboardPages.map(item => ({ title: item.title, image: item.image, width: item.width, height: item.height, caption: item.caption }));
 
-export function Analytics() {
+export function Analytics({ category = 'Trading analytics dashboard · Power BI' }: { category?: string } = {}) {
   const [active, setActive] = useState<number | null>(null);
   const [page, setPage] = useState(0);
   const viewer = useRef<HTMLDialogElement>(null);
@@ -222,7 +222,7 @@ export function Analytics() {
     <span className="scene-number">01 / SELECTED PROJECT</span>
     <span className="analytics-grid" aria-hidden="true" />
     <span className="ghost-word analytics-ghost" aria-hidden="true">CLARITY</span>
-    <div className="analytics-title"><p className="eyebrow">FROM RECORDS TO RECOGNITION.</p><h2 id="analytics-title" data-reveal>Trading <span>analytics.</span></h2><p className="project-category">Trading analytics dashboard · Power BI</p><Keywords words={['INSIGHT', 'CLARITY']} />
+    <div className="analytics-title"><p className="eyebrow">FROM RECORDS TO RECOGNITION.</p><h2 id="analytics-title" data-reveal>Trading <span>analytics.</span></h2><p className="project-category">{category}</p><Keywords words={['INSIGHT', 'CLARITY']} />
       <div className="stack-caption" aria-live="polite">{hovered
       ? <><p className="caption-label"><span>{String((active ?? 0) + 1).padStart(2, '0')} / 03</span>{hovered.title}</p><p className="caption-text" key={hovered.title}>{hovered.caption}</p></>
       : <p className="caption-label">THREE PAGES <span>/</span> SELECT ONE TO EXPLORE</p>}</div>
@@ -239,7 +239,7 @@ export function Analytics() {
 }
 
 const trailCrops = ['12% 8%', '8% 70%', '60% 72%', '85% 20%', '40% 40%', '75% 90%'];
-export function Lab() {
+export function Lab({ title = 'Lab', category = 'Automation tools & Discord apps' }: { title?: string; category?: string } = {}) {
   const [active, setActive] = useState<string | null>(null);
   const trail = useRef<HTMLDivElement>(null);
   const last = useRef({ x: 0, y: 0, t: 0, n: 0 });
@@ -264,7 +264,7 @@ export function Lab() {
   return <section className="scene lab-scene" id="lab" data-scene data-chapter="work" data-active={active ?? ''} aria-labelledby="lab-title" onPointerMove={leaveTrail} onPointerLeave={() => setActive(null)} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setActive(null); }}>
     <span className="scene-number">03 / SELECTED PROJECT</span>
     <div className="lab-trail" ref={trail} aria-hidden="true" />
-    <div className="lab-heading"><p className="eyebrow">SMALL BUILDS. USEFUL HABITS.</p><h2 id="lab-title" data-reveal>Lab<span className="title-dot">.</span></h2><p className="project-category">Automation tools &amp; Discord apps</p><Keywords words={['SYSTEMS']} /></div>
+    <div className="lab-heading"><p className="eyebrow">SMALL BUILDS. USEFUL HABITS.</p><h2 id="lab-title" data-reveal>{title}<span className="title-dot">.</span></h2><p className="project-category">{category}</p><Keywords words={['SYSTEMS']} /></div>
     <span className="ghost-word lab-ghost" aria-hidden="true">SYSTEMS</span>
     <p className="lab-guide">A few experiments in making things work.<span>SWIPE TO EXPLORE →</span></p>
     <div className="lab-windows">
@@ -280,7 +280,7 @@ export function Lab() {
     <p className="lab-footnote">TWO APPS / THREE VIEWS</p>
   </section>;
 }
-export function Journey({ mark = 'III', career, heading = 'Journey', line = 'Four places. One ongoing journey.', stops = cities, mode = 'scroll', hint = 'SCROLL TO TRAVEL ↓' }: { mark?: string; career?: Record<string, { org: string; role: string; period: string; line: string }[]>; heading?: string; line?: string; stops?: readonly City[]; mode?: 'scroll' | 'browse'; hint?: string }) {
+export function Journey({ mark = 'III', career, heading = 'Journey', line = 'Four places. One ongoing journey.', stops = cities, mode = 'scroll', hint = 'SCROLL TO TRAVEL ↓', label = 'PERSONAL JOURNEY' }: { mark?: string; career?: Record<string, { org: string; role: string; period: string; line: string }[]>; heading?: string; line?: string; stops?: readonly City[]; mode?: 'scroll' | 'browse'; hint?: string; label?: string }) {
   const [selected, setSelected] = useState(0);
   const [memory, setMemory] = useState(false);
   const start = useRef<{ x: number; y: number } | null>(null);
@@ -334,7 +334,7 @@ export function Journey({ mark = 'III', career, heading = 'Journey', line = 'Fou
   const city = stops[selected];
   return <section className="scene journey-scene" id="journey" data-scene data-chapter="journey" aria-labelledby="journey-title">
     <div className="chapter-title journey-heading">
-      <p className="chapter-mark">{mark} <span>/</span> PERSONAL JOURNEY</p>
+      <p className="chapter-mark">{mark}{label && <> <span>/</span> {label}</>}</p>
       <h2 id="journey-title" data-reveal>{heading}</h2>
       <p className="chapter-line">{line}</p>
     </div>
@@ -364,6 +364,7 @@ export function ProfilePanel({ panel }: { panel: RefObject<HTMLDialogElement | n
         <p className="chapter-mark">I <span>/</span> PROFILE</p>
         <h2 id="profile-title">Freddy Liang</h2>
         <p className="profile-lead">{profile.lead}</p>
+        {profile.trader && <p className="profile-trader">{profile.trader}</p>}
         {profile.experience.length > 0 && <section className="profile-experience" aria-label="Experience"><p className="caption-label">EXPERIENCE</p><ol>{profile.experience.map(item => <li key={item.role + item.organisation}><p><strong>{item.role}</strong> <span>{item.organisation}</span></p><p className="experience-period">{item.period}</p><p>{item.line}</p></li>)}</ol></section>}
         {profile.lines.map(line => <p key={line}>{line}</p>)}
         <div className="profile-links"><a href={`mailto:${contact.email}`}>EMAIL</a><a href={contact.linkedin} target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a><a href={contact.github} target="_blank" rel="noopener noreferrer">GITHUB ↗</a></div>
@@ -383,9 +384,9 @@ export function Opening({ owner = 'PERSONAL PORTFOLIO' }: { owner?: string }) {
   return <div className="opening" aria-hidden="true"><p className="opening-owner">FREDDY LIANG <span>/</span> {owner}</p><div className="opening-word word-systems">SYSTEMS</div><div className="opening-word word-clarity">CLARITY</div><div className="opening-word word-insight">INSIGHT</div><span className="opening-rule" /><span className="opening-vertical" /></div>;
 }
 
-export function ContactFooter({ mark = 'IV', children }: { mark?: string; children?: ReactNode }) {
+export function ContactFooter({ mark = 'IV', label = 'CONTACT', children }: { mark?: string; label?: string; children?: ReactNode }) {
   return <footer className="scene contact" id="contact" data-scene data-chapter="contact" aria-labelledby="contact-title">
-    <p className="chapter-mark">{mark} <span>/</span> CONTACT</p>
+    <p className="chapter-mark">{mark}{label && <> <span>/</span> {label}</>}</p>
     <h2 id="contact-title" data-reveal>Contact</h2>
     <ul className="contact-links">
       <li><a href={`mailto:${contact.email}`} aria-label={`Email Freddy at ${contact.email}`}><ContactIcon name="email" /><span className="contact-name">Email</span><span className="contact-detail">{contact.email}</span></a></li>

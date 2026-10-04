@@ -52,10 +52,10 @@ export const profile = {
     { role: 'Solution Consultant (Internship)', organisation: 'SF Technology Group', period: 'Jun 2023 – Nov 2023 · Shenzhen', line: 'Validated Estée Lauder’s SAP data migration; scenario-tested orders and returns.' },
     { role: 'Product Analyst (Internship)', organisation: 'ByteDance', period: 'Aug 2021 – Nov 2021 · Beijing', line: 'Analysed creator and campaign data for campaigns reaching 1.5M+ views.' },
   ] as { role: string; organisation: string; period: string; line: string }[],
+  trader: 'I’m also an active trader, so I understand markets from the client’s side as well as the data side.',
   lines: [
-    'I’m targeting Business Analyst roles, especially where customer needs, data and systems come together.',
+    'I’m targeting Business Analyst roles where customer needs, data and systems come together.',
     'I like turning messy problems and raw data into something practical: clearer requirements, better processes, useful insights, or a better customer experience.',
-    'Long term, I want to grow into the kind of BA who can understand both the people using a system and the teams building it.',
   ],
 };
 
@@ -121,13 +121,15 @@ export const cities = [
 export const business = {
   headline: 'Business & Data Analyst',
   location: 'Melbourne',
-  positioning: 'I connect what people need with what the data shows, and build the proof.',
-  /* The three keywords as reasons to hire, each backed by facts from the CV. */
+  /* The three keywords as reasons to hire, each backed by facts from the CV. Proof items with href link to the work. */
   pillars: [
-    { keyword: 'CLARITY', claim: 'I understand the people.', proof: ['Psychology degree', '180+ clients', '800+ creators coordinated'] },
-    { keyword: 'INSIGHT', claim: 'I work with real data.', proof: ['Power BI on live client trading data', '62,000+ signal events audited'] },
-    { keyword: 'SYSTEMS', claim: 'I build what I recommend.', proof: ['A live research platform', 'Automations running daily'] },
-  ],
+    { keyword: 'CLARITY', claim: 'I turn what clients need into what operations and tech teams can act on.',
+      proof: [{ text: '180+ retail trading clients at TMGM' }, { text: 'User stories at Focus Bear' }, { text: 'Psychology degree' }] },
+    { keyword: 'INSIGHT', claim: 'I work with real market data.',
+      proof: [{ text: 'Power BI on live client trading records' }, { text: '62,000+ market signal events audited' }] },
+    { keyword: 'SYSTEMS', claim: 'I ship trading research tools that run on live market data.',
+      proof: [{ text: 'Live trading research platform', href: 'https://sage.freddyliang.com' }, { text: 'Reddit Stock Radar', href: 'https://github.com/327979420/reddit-stock-radar' }, { text: 'Fear & Greed Tracker', href: 'https://github.com/327979420/fear-greed-tracker-discord' }] },
+  ] as { keyword: string; claim: string; proof: { text: string; href?: string }[] }[],
 };
 
 /* What each city meant: study and roles, in order. */
@@ -145,19 +147,22 @@ export const careerByCity: Record<string, { org: string; role: string; period: s
 /* Each project as a short case: the question, what Freddy did, tools, and what it shows. Draft wording from the CV. */
 export const projectCases = [
   { id: 'trading-analytics', name: 'Trading Analytics', kind: 'Power BI dashboard · TMGM', image: '/images/powerbi/overview.webp',
-    glance: 'What separates profitable clients from the rest?',
+    glance: '3,322 real client trades analysed in Power BI.',
+    links: [],
     problem: 'What separates profitable and unprofitable clients?',
     did: 'Cleaned several thousand trade records; built DAX measures and three dashboard pages.',
     tools: ['Power BI', 'Power Query', 'DAX', 'Excel'],
     result: 'Three dashboard pages that move from overview, to comparison, to the evidence behind each pattern.' },
-  { id: 'sage-vista', name: 'Sage Vista', kind: 'Equity research platform', image: '/images/sage/opportunities.webp',
-    glance: 'A screener that explains every pick and checks itself.',
+  { id: 'sage-vista', name: 'Sage Vista', kind: 'Trading research platform (US equities)', image: '/images/sage/opportunities.webp',
+    glance: 'A multi-factor signal engine for US equities, audited across 62,000+ events.',
+    links: [{ label: 'Live site', href: 'https://sage.freddyliang.com' }, { label: 'GitHub', href: 'https://github.com/327979420/sage-vista' }],
     problem: 'Can a stock screener explain every pick, and check itself?',
-    did: 'Built a bilingual platform; audited 62,000+ signal events across 39 factors.',
+    did: 'Built a bilingual platform with a 39-factor score, tested in 41 pre-registered experiments.',
     tools: ['Python', 'TypeScript', 'React'],
     result: 'Results reported transparently, including where higher scores did not lead to better outcomes.' },
   { id: 'lab', name: 'Market Intelligence Automations', kind: 'Discord apps', image: '/images/lab-discord-apps.png',
-    glance: 'Market attention, news and sentiment, delivered automatically.',
+    glance: 'Reddit attention rankings and a daily Fear & Greed report, posted to Discord.',
+    links: [{ label: 'Reddit Stock Radar', href: 'https://github.com/327979420/reddit-stock-radar' }, { label: 'Fear & Greed Tracker', href: 'https://github.com/327979420/fear-greed-tracker-discord' }],
     problem: 'Can market attention, news and sentiment arrive automatically?',
     did: 'Built a Reddit attention radar, a 10-minute news feed and a daily sentiment card.',
     tools: ['Python', 'GitHub Actions', 'Docker'],

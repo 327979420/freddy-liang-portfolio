@@ -3514,47 +3514,6 @@ html:has(dialog[open]) {
   padding:120px 6vw 8vh
 }
 
-.ba-person {
-  display:flex;
-  align-items:center;
-  gap:16px;
-  text-align:left
-}
-
-.ba-person {
-  gap:22px
-}
-
-.ba-person img {
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  object-fit:cover;
-  object-position:50% 22%;
-  filter:saturate(.8);
-  outline:1px solid #3a4038;
-  outline-offset:3px
-}
-
-.ba-person span {
-  display:grid;
-  gap:3px
-}
-
-.ba-person strong {
-  font-size:20px;
-  font-weight:500;
-  color:var(--paper)
-}
-
-.ba-person em {
-  font:10px var(--mono);
-  font-style:normal;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:#8d958a
-}
-
 .ba-headline {
   margin-top:3.5vh;
   font-family:var(--display);
@@ -3651,7 +3610,7 @@ html:has(dialog[open]) {
   padding:0
 }
 
-.ba-cards button {
+.ba-cards .card-open {
   display:grid;
   gap:10px;
   width:100%;
@@ -3674,7 +3633,7 @@ html:has(dialog[open]) {
   transition:filter .45s,transform .8s var(--ease)
 }
 
-.ba-cards button:hover .card-image img,.ba-cards button:focus-visible .card-image img {
+.ba-cards .card-open:hover .card-image img,.ba-cards .card-open:focus-visible .card-image img {
   filter:var(--grade);
   transform:scale(1.03)
 }
@@ -3981,15 +3940,6 @@ html:has(dialog[open]) {
 }
 
 /* Hero flow: what Freddy is → why he is different → the three reasons, each with proof. */
-.ba-positioning {
-  max-width:24em;
-  margin-top:3vh;
-  font-size:clamp(22px,2.1vw,36px);
-  line-height:1.2;
-  letter-spacing:-.025em;
-  color:var(--paper)
-}
-
 .ba-pillars {
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -4036,10 +3986,6 @@ html:has(dialog[open]) {
     padding-top:96px
   }
 
-  .ba-person img {
-    width:92px;
-    height:92px
-  }
 
   .ba-pillars {
     margin-top:3.5vh
@@ -4052,14 +3998,425 @@ html:has(dialog[open]) {
 }
 
 @media(max-width:600px) {
-  .ba-person img {
-    width:96px;
-    height:96px
-  }
 
   .ba-pillars {
     grid-template-columns:1fr;
     gap:22px
+  }
+
+}
+
+/* Pillar proof: separated facts, with live links where the work can be opened. */
+.pillar-proof {
+  display:grid;
+  gap:3px;
+  justify-items:start
+}
+
+.pillar-proof a {
+  color:#d9e4d6;
+  text-decoration:underline;
+  text-decoration-color:#6d7b6a;
+  text-underline-offset:3px;
+  transition:color .3s,text-decoration-color .3s
+}
+
+.pillar-proof a:hover,.pillar-proof a:focus-visible {
+  color:#fff;
+  text-decoration-color:#a9c0b9
+}
+
+.profile-trader {
+  max-width:600px;
+  margin:-8px 0 26px;
+  padding-left:14px;
+  border-left:1px solid #a9c0b9;
+  font-size:16px!important;
+  line-height:1.55;
+  color:#d6d9d0!important
+}
+
+/* The Close button stays on screen however far the panel is scrolled. */
+.profile-close {
+  position:fixed;
+  top:20px;
+  right:3vw;
+  z-index:5;
+  padding:10px 14px;
+  background:#070707e6;
+  box-shadow:inset 0 0 0 1px #3a4038
+}
+
+/* ---------- Clear ways in: breathing calls to action, card cues, link chips, project tabs ---------- */
+
+/* A slow ring that swells and fades: says "this is alive, press me" without moving the layout. */
+.breathe {
+  position:relative;
+  animation:breathe-body 3.2s ease-in-out infinite
+}
+
+.breathe:after {
+  content:'';
+  position:absolute;
+  inset:-1px;
+  border:1px solid #e8e7e1;
+  opacity:0;
+  pointer-events:none;
+  animation:breathe-ring 3.2s ease-in-out infinite
+}
+
+.breathe:nth-child(2),.breathe:nth-child(2):after {
+  animation-delay:.5s
+}
+
+.breathe:nth-child(3),.breathe:nth-child(3):after {
+  animation-delay:1s
+}
+
+@keyframes breathe-body {
+  0%,100% {
+    transform:scale(1)
+  }
+
+  50% {
+    transform:scale(1.025)
+  }
+
+}
+
+@keyframes breathe-ring {
+  0% {
+    opacity:0;
+    transform:scale(1)
+  }
+
+  35% {
+    opacity:.32
+  }
+
+  100% {
+    opacity:0;
+    transform:scale(1.06,1.3)
+  }
+
+}
+
+.breathe:hover,.breathe:focus-visible {
+  animation-play-state:paused
+}
+
+.business .ba-ctas {
+  width:100%;
+  justify-content:center;
+  gap:16px;
+  margin-top:6vh
+}
+
+.business .ba-button {
+  padding:19px 30px;
+  font-size:12px
+}
+
+.card-image {
+  position:relative
+}
+
+.card-cue {
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  padding:8px 11px;
+  background:#0b0c0bd9;
+  box-shadow:inset 0 0 0 1px #4a5248;
+  font:10px var(--mono);
+  letter-spacing:.06em;
+  color:var(--paper);
+  transition:background .3s,color .3s
+}
+
+.card-open:hover .card-cue,.card-open:focus-visible .card-cue {
+  background:var(--paper);
+  color:#0b0c0b
+}
+
+.ba-cards li {
+  display:grid;
+  align-content:start
+}
+
+.card-open {
+  display:grid;
+  gap:10px;
+  width:100%;
+  text-align:left
+}
+
+.card-actions,.case-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px
+}
+
+.case-actions {
+  margin-top:28px
+}
+
+.ba-chip {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 15px;
+  box-shadow:inset 0 0 0 1px #4a5248;
+  font:11px var(--mono);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--paper);
+  transition:background .3s,color .3s
+}
+
+.ba-chip:hover,.ba-chip:focus-visible {
+  background:#161916
+}
+
+.ba-chip--solid {
+  background:var(--paper);
+  color:#0b0c0b;
+  box-shadow:none
+}
+
+.ba-chip--solid:hover,.ba-chip--solid:focus-visible {
+  background:#fff
+}
+
+/* Project switcher: three large buttons; the ones not chosen keep breathing. */
+.business .ba-tabs {
+  gap:12px;
+  padding-bottom:4px;
+  border-bottom:0
+}
+
+.business .ba-tabs button {
+  padding:16px 24px;
+  font-size:clamp(17px,1.5vw,22px);
+  box-shadow:inset 0 0 0 1px #4a5248;
+  color:#c9ccc3
+}
+
+.business .ba-tabs button[aria-selected=true] {
+  background:var(--paper);
+  color:#0b0c0b;
+  box-shadow:none
+}
+
+.business .ba-tabs button[aria-selected=true] em {
+  color:#56604f
+}
+
+.business .ba-tabs button[aria-selected=true]:after {
+  content:none
+}
+
+@media(max-width:600px) {
+  .business .ba-ctas {
+    margin-top:36px
+  }
+
+  .business .ba-tabs {
+    padding:6px 2px 8px
+  }
+
+  .business .ba-tabs button {
+    padding:13px 16px
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .breathe,.breathe:after {
+    animation:none
+  }
+
+}
+
+/* Project tabs sit centred, matching the hero buttons. */
+.business .ba-tabs {
+  justify-content:center
+}
+
+/* Lab in the business edition: room for every window and its caption. */
+.business .lab-scene {
+  height:auto;
+  min-height:max(118svh,1000px)
+}
+
+.business .lab-window--history {
+  top:52vh
+}
+
+/* Review pass: say each thing once. Inside project sections the tabs, title and category line carry the naming. */
+.business .scene-number,
+.business .project-heading .eyebrow,.business .analytics-title .eyebrow,.business .lab-heading .eyebrow,
+.business .project-heading .keywords,.business .analytics-title .keywords,.business .lab-heading .keywords,
+.business .lab-guide,
+.business .screen-arrows .live-link,
+.business .career-line {
+  display:none
+}
+
+/* "Market intelligence." is longer than "Lab.": size it to its own column. */
+.business .lab-heading {
+  max-width:25vw
+}
+
+.business .lab-heading h2 {
+  font-size:clamp(48px,4.8vw,88px);
+  line-height:.95;
+  letter-spacing:-.045em
+}
+
+@media(max-width:600px) {
+  .business .lab-heading {
+    max-width:88vw
+  }
+
+  .business .lab-heading h2 {
+    font-size:14vw
+  }
+
+}
+
+/* Hero, refined: name and photo anchor the top; the three keywords are the visual beat; proof stays quiet. */
+.ba-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  gap:30px
+}
+
+.ba-name {
+  display:grid;
+  gap:8px;
+  text-align:left
+}
+
+.ba-name strong {
+  font-size:clamp(30px,2.8vw,48px);
+  font-weight:450;
+  letter-spacing:-.035em;
+  color:var(--paper)
+}
+
+.ba-name em {
+  font:11px var(--mono);
+  font-style:normal;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#8d958a
+}
+
+.ba-photo-lg {
+  flex:0 0 auto;
+  width:clamp(150px,13vw,230px);
+  aspect-ratio:1;
+  border-radius:50%;
+  overflow:hidden;
+  outline:1px solid #3a4038;
+  outline-offset:6px;
+  transition:outline-color .4s
+}
+
+.ba-photo-lg img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 24%;
+  filter:saturate(.85);
+  transition:transform .8s var(--ease)
+}
+
+.ba-photo-lg:hover,.ba-photo-lg:focus-visible {
+  outline-color:#a9c0b9
+}
+
+.ba-photo-lg:hover img {
+  transform:scale(1.04)
+}
+
+.business .ba-headline {
+  margin-top:2vh
+}
+
+.business .ba-pillars {
+  gap:4vw;
+  margin-top:5.5vh
+}
+
+.business .ba-pillars li {
+  gap:10px;
+  padding-top:20px
+}
+
+.business .pillar-keyword {
+  font-family:var(--display);
+  font-stretch:64%;
+  font-weight:540;
+  font-size:clamp(30px,2.6vw,46px);
+  line-height:.9;
+  letter-spacing:.01em;
+  color:#a9c0b9
+}
+
+.business .ba-pillars strong {
+  font-size:clamp(17px,1.3vw,22px);
+  line-height:1.3
+}
+
+.business .pillar-proof {
+  margin-top:4px;
+  gap:2px;
+  font-size:13px;
+  color:#868c83
+}
+
+.business .pillar-proof a {
+  color:#c3cdbe
+}
+
+/* Contact follows the last project without a long empty gap. */
+.business .contact {
+  min-height:0;
+  padding-top:10vh
+}
+
+.business .project-case {
+  padding-bottom:6vh
+}
+
+@media(max-height:820px) and (min-width:601px) {
+  .ba-photo-lg {
+    width:120px
+  }
+
+  .business .ba-pillars {
+    margin-top:3.5vh
+  }
+
+}
+
+@media(max-width:600px) {
+  .ba-photo-lg {
+    width:104px;
+    outline-offset:4px
+  }
+
+  .ba-name strong {
+    font-size:26px
+  }
+
+  .business .contact {
+    padding-top:80px
   }
 
 }

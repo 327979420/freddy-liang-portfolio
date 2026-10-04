@@ -11,7 +11,7 @@ This repository is the portable editing handoff for Freddy Liang's personal port
 
 ## Two editions (since 2 October 2026)
 
-- **Business edition**, live at freddyliang.com: `app/page.tsx` → `app/business.tsx`. Short (about five screens): hero (role, positioning line, credentials, CLARITY / INSIGHT / SYSTEMS pillars with proof) → project cards → Journey in browse mode (Melbourne first, arrows) → one project in detail via tabs → contact. All copy comes from Freddy's CV (1 Oct 2026) and lives in `app/content.ts` (`business`, `careerByCity`, `projectCases`, `profile.experience`).
+- **Business edition**, live at freddyliang.com: `app/page.tsx` → `app/business.tsx`. Short (about five screens): hero (name and large photo, role headline, CLARITY / INSIGHT / SYSTEMS pillars with proof and links, breathing calls to action) → project cards → Journey in browse mode (Melbourne first, arrows) → one project in detail via tabs → contact. All copy comes from Freddy's CV (1 Oct 2026) and lives in `app/content.ts` (`business`, `careerByCity`, `projectCases`, `profile.experience`).
 - **Studio edition** (the cinematic site below): `app/site.tsx` exports `CinematicHome` and all shared scene components. Its route is parked in `app/_studio/` (an underscore folder is not routed, so it is not published). Rename the folder to `app/studio/` to serve it at /studio again. The exact published version is git tag `v1-cinematic`.
 - No Mochi, Studio link, phone number or visa status on the business edition, at Freddy's request.
 
