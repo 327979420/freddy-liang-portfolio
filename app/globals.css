@@ -2265,6 +2265,28 @@ html[data-motion=on] .lab-window[data-reveal][data-shown=true],html[data-motion=
   color:var(--paper)
 }
 
+.privacy-note {
+  font:9px var(--mono);
+  letter-spacing:.035em;
+  color:#6f756b
+}
+
+.privacy-note button {
+  font:inherit;
+  letter-spacing:inherit;
+  color:#80867b;
+  background:none;
+  border:0;
+  padding:0;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  cursor:pointer
+}
+
+.privacy-note button:hover,.privacy-note button:focus-visible {
+  color:var(--paper)
+}
+
 @media(max-width:1000px) {
   .contact h2,.contact-links {
     grid-column:1/-1

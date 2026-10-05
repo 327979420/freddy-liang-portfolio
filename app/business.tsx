@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { business, careerByCity, cities, contact, profile, projectCases } from './content';
+import { trackEvent, useSectionViews } from './tracking';
 import { Analytics, ContactFooter, CursorLabel, Journey, Lab, Opening, ProfilePanel, SageVista, SiteHeader, scrollToY, useSceneMotion, type ChapterLink } from './site';
 
 /* The business edition (freddyliang.com): short, one focal point per section.
@@ -12,6 +13,9 @@ const chapters: readonly ChapterLink[] = [
   { id: 'journey', number: 'III', name: 'Journey', anchor: 'journey' },
   { id: 'contact', number: 'IV', name: 'Contact', anchor: 'contact' },
 ];
+
+// Sections reported as `section_viewed`, in page order, to see how far visitors read.
+const trackedSections = ['identity', 'projects', 'journey', 'project-detail', 'contact'] as const;
 
 type ProjectId = (typeof projectCases)[number]['id'];
 const newestFirst = [...cities].reverse();
@@ -38,10 +42,12 @@ export default function BusinessHome() {
   const chapter = useSceneMotion();
   const profilePanel = useRef<HTMLDialogElement>(null);
   const [project, setProject] = useState<ProjectId>('trading-analytics');
-  const openProfile = () => profilePanel.current?.showModal();
+  useSectionViews(trackedSections);
+  const openProfile = () => { profilePanel.current?.showModal(); trackEvent('profile_opened'); };
   // Choosing a project shows it in the detail area; the scroll loop is nudged so the new scene reveals at once.
   const show = (id: ProjectId, jump: boolean) => {
     setProject(id);
+    trackEvent('project_opened', { project: id, from: jump ? 'card' : 'tab' });
     requestAnimationFrame(() => {
       window.dispatchEvent(new Event('scroll'));
       const detail = document.getElementById('project-detail');

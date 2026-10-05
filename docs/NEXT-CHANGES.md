@@ -101,6 +101,12 @@ Before implementation, agree the final ending treatment with Freddy. Do not sile
 
 - Enrich Sage Vista's copy with the platform's own model vocabulary (scoring model, factor names, how candidates are ranked). The repo describes it as a "US equity research and multi-factor signal trading system".
 
+## Visitor analytics (5 October 2026)
+
+- PostHog was added to freddyliang.com and sage.freddyliang.com (one project, US cloud). Freddy chose: tracking with no consent banner, a one-line footer note with opt-out, and **no session replay**. Heatmaps and autocaptured clicks are on.
+- Freddy should review the footer wording ("PostHog cookies help me improve this site").
+- Optional later: a reverse proxy (PostHog warns that ad blockers drop 10–25% of events).
+
 ## Suggested implementation order once authorized
 
 1. Confirm the ending and chapter transitions in a concise text plan.

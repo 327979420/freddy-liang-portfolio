@@ -41,6 +41,7 @@ The current image treatment and motion were approved as a substantial improvemen
 | scripts/recolour-mochi.py | Regenerates the colour Mochi from `mochi-cutout.png` (needs Pillow + NumPy) |
 | app/globals.css | Material background, scene compositions, responsive and reduced-motion behavior |
 | app/content.ts | Contacts, project destinations, city photos and credits |
+| app/tracking.ts, instrumentation-client.ts | PostHog visitor analytics (custom events, outbound clicks, opt-out) |
 | app/layout.tsx | Fonts, page metadata, pre-paint intro bypass |
 | public/images/ | All images needed by the website |
 | docs/references/ | Original-colour Mochi photographs used to match the recolour |
@@ -65,6 +66,7 @@ The current image treatment and motion were approved as a substantial improvemen
 - Clicking the hero name (no hover portrait; it was removed), ABOUT FREDDY, or the portrait in the Profile introduction scene (`#about`) opens the Profile panel (text in `app/content.ts`).
 - Project captions for Sage Vista and Power BI live in `app/content.ts` (`sageFrames[].caption`, `dashboardPages[].caption`). They are Claude-drafted and need Freddy's review.
 - Keep contact destinations in app/content.ts. Do not invent project performance claims.
+- PostHog analytics (since 5 October 2026): US cloud, shared with sage.freddyliang.com; no session replay, at Freddy's request. Only deployed production builds report (not `npm run dev`, localhost or 127.0.0.1). The footer note links to opt-out, which covers both sites. Custom events: `section_viewed`, `project_opened`, `profile_opened`, `screenshot_opened`, `journey_city_viewed`, `journey_photo_opened`, `outbound_link_clicked`.
 
 ## Validation
 

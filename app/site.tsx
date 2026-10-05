@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type CSSProperties, type PointerEvent, typ
 import Lenis from 'lenis';
 import Mochi from './components/Mochi';
 import { contact, projects, labItems, cities, sageFrames, dashboardPages, profile } from './content';
+import { optedOut, setOptedOut, trackEvent, trackingActive } from './tracking';
 
 type City = (typeof cities)[number];
 
@@ -192,7 +193,7 @@ export function SageVista({ category = projects.sage.category }: { category?: st
       <div className="screen-arrows"><button type="button" onClick={() => choose(frame - 1)} aria-label="Previous screen">←</button><button type="button" onClick={() => choose(frame + 1)} aria-label="Next screen">→</button><a className="live-link" href={projects.sage.url} target="_blank" rel="noopener noreferrer">VIEW LIVE SITE <span>↗</span></a></div>
     </div>
     <div className="sage-stage">
-      <button type="button" className="sage-screen" data-cursor="FOCUS +" aria-label={`Open ${current.label} in focus`} onClick={() => { setAuto(false); setPage(frame); viewer.current?.showModal(); }}>
+      <button type="button" className="sage-screen" data-cursor="FOCUS +" aria-label={`Open ${current.label} in focus`} onClick={() => { setAuto(false); setPage(frame); viewer.current?.showModal(); trackEvent('screenshot_opened', { project: 'sage-vista', screen: current.label }); }}>
         {sageFrames.map((item, index) => <span className="sage-frame" key={item.label} data-current={index === frame} style={{ '--focus': item.focus, '--zoom': item.scale, '--crop': item.position } as CSSProperties}>
           <img src={item.image} alt={index === frame ? `Sage Vista: ${item.label}.` : ''} width={item.width} height={item.height} loading="lazy" decoding="async" draggable="false" />
         </span>)}
@@ -216,7 +217,7 @@ export function Analytics({ category = 'Trading analytics dashboard · Power BI'
   const [active, setActive] = useState<number | null>(null);
   const [page, setPage] = useState(0);
   const viewer = useRef<HTMLDialogElement>(null);
-  const open = (index: number) => { setPage(index); viewer.current?.showModal(); };
+  const open = (index: number) => { setPage(index); viewer.current?.showModal(); trackEvent('screenshot_opened', { project: 'trading-analytics', screen: dashboardPages[index].title }); };
   const hovered = active === null ? null : dashboardPages[active];
   return <section className="scene analytics-scene" id="trading-analytics" data-scene data-chapter="work" data-active={active ?? ''} aria-labelledby="analytics-title" onPointerLeave={() => setActive(null)}>
     <span className="scene-number">01 / SELECTED PROJECT</span>
@@ -307,6 +308,7 @@ export function Journey({ mark = 'III', career, heading = 'Journey', line = 'Fou
   const select = (index: number) => {
     const node = track.current;
     const target = Math.max(0, Math.min(stops.length - 1, index));
+    trackEvent('journey_city_viewed', { city: stops[target].name });
     if (mode === 'browse') { setSelected(target); setMemory(false); return; }
     if (!node) return;
     const top = node.getBoundingClientRect().top + scrollY + (node.offsetHeight - innerHeight) * (target + .5) / stops.length;
@@ -342,7 +344,7 @@ export function Journey({ mark = 'III', career, heading = 'Journey', line = 'Fou
     <div className="journey-panel" data-reveal data-memory={memory} tabIndex={0} role="region" aria-label="Explore Freddy's journey. Scroll, use the left and right arrow keys, or drag horizontally." onPointerDown={dragStart} onPointerMove={dragMove} onPointerUp={dragEnd} onPointerCancel={event => { start.current = null; event.currentTarget.style.setProperty('--drag-x', '0px'); }}
       onKeyDown={event => { if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); select(selected + (event.key === 'ArrowRight' ? 1 : -1)); } if (event.key === 'Home') { event.preventDefault(); select(0); } if (event.key === 'End') { event.preventDefault(); select(stops.length - 1); } }}>
       <div className="journey-images" aria-hidden="true">{stops.map((image, index) => <img className={selected === index ? 'current' : ''} key={image.name} src={image.image} alt="" style={{objectPosition:image.position}} width={image.width} height={image.height} loading="lazy" decoding="async" draggable="false" />)}</div>
-      <button type="button" className="memory" data-cursor={memory ? 'BACK TO THE CITY' : 'SEE MY PHOTO +'} aria-pressed={memory} onClick={() => setMemory(value => !value)} aria-label={memory ? `Show the ${city.name} skyline` : `Show Freddy's own photo from ${city.name}`}>
+      <button type="button" className="memory" data-cursor={memory ? 'BACK TO THE CITY' : 'SEE MY PHOTO +'} aria-pressed={memory} onClick={() => { if (!memory) trackEvent('journey_photo_opened', { city: city.name }); setMemory(value => !value); }} aria-label={memory ? `Show the ${city.name} skyline` : `Show Freddy's own photo from ${city.name}`}>
         <span className="memory-frame">{stops.map((item, index) => <img key={item.name} className={selected === index ? 'current' : ''} src={item.memory.image} alt={selected === index ? `Freddy in ${item.name}.` : ''} width={item.memory.width} height={item.memory.height} style={{ objectPosition: item.memory.position }} loading="lazy" decoding="async" draggable="false" />)}</span>
         <span className="memory-label">{memory ? 'BACK TO CITY' : `MY ${city.name.toUpperCase()}`} <span aria-hidden="true">{memory ? '−' : '+'}</span></span>
       </button>
@@ -384,6 +386,15 @@ export function Opening({ owner = 'PERSONAL PORTFOLIO' }: { owner?: string }) {
   return <div className="opening" aria-hidden="true"><p className="opening-owner">FREDDY LIANG <span>/</span> {owner}</p><div className="opening-word word-systems">SYSTEMS</div><div className="opening-word word-clarity">CLARITY</div><div className="opening-word word-insight">INSIGHT</div><span className="opening-rule" /><span className="opening-vertical" /></div>;
 }
 
+// Tracking disclosure with a one-click opt-out (also handy for excluding Freddy's own visits).
+function PrivacyNote() {
+  const [active, setActive] = useState(false);
+  const [out, setOut] = useState(false);
+  useEffect(() => { setActive(trackingActive()); setOut(optedOut()); }, []);
+  const toggle = () => { setOptedOut(!out); setOut(!out); };
+  return <p className="privacy-note">POSTHOG COOKIES HELP ME IMPROVE THIS SITE{active && <> · <button type="button" aria-pressed={out} onClick={toggle}>{out ? 'OPTED OUT · UNDO' : 'OPT OUT'}</button></>}</p>;
+}
+
 export function ContactFooter({ mark = 'IV', label = 'CONTACT', children }: { mark?: string; label?: string; children?: ReactNode }) {
   return <footer className="scene contact" id="contact" data-scene data-chapter="contact" aria-labelledby="contact-title">
     <p className="chapter-mark">{mark}{label && <> <span>/</span> {label}</>}</p>
@@ -394,7 +405,7 @@ export function ContactFooter({ mark = 'IV', label = 'CONTACT', children }: { ma
       <li><a href={contact.github} target="_blank" rel="noopener noreferrer" aria-label="Freddy on GitHub, opens in a new tab"><ContactIcon name="github" /><span className="contact-name">GitHub <span aria-hidden="true">↗</span></span></a></li>
     </ul>
     {children}
-    <div className="contact-bottom"><div className="contact-keywords"><Keywords words={["SYSTEMS", "CLARITY", "INSIGHT"]} /><span className="ai-line">· AI-EMPOWERED</span></div><a className="back-top" href="#identity">BACK TO TOP ↑</a></div>
+    <div className="contact-bottom"><div className="contact-keywords"><Keywords words={["SYSTEMS", "CLARITY", "INSIGHT"]} /><span className="ai-line">· AI-EMPOWERED</span></div><PrivacyNote /><a className="back-top" href="#identity">BACK TO TOP ↑</a></div>
   </footer>;
 }
 
